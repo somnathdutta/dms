@@ -1,0 +1,86 @@
+<?page title="Departmentmaster" contentType="text/html;charset=UTF-8"?>
+<zk>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./main"?>
+<style dynamic="true">
+		<!-- Make Plain Grid -->
+		.GridLayoutNoBorder tr.z-row td.z-row-inner, tr.z-row
+		.z-cell,div.z-grid {
+			border: none;
+			overflow: hidden;
+			zoom: 1;
+			background:
+			white;
+			border-top: none;
+			border-left: none;
+			border-right: none;
+			border-bottom: none;
+		}
+	</style>
+		<zscript deferred="true">
+			String bgColor = "#FFBD30";
+			String bgStyle = "background: " + bgColor;
+			main.setStyle(bgStyle);
+			n.setStyle(bgStyle);
+		</zscript>
+<borderlayout id="main" apply="org.sap.birlatyres.core.gen.composers.DepartmentmasterComposer" height="100%">
+	<north id="n">
+		<menubar orient="horizontal" style="">
+			<menuitem label="Load" id="mLoad" image="images/action_fetch.gif"/>
+			<menuitem label="Save" id="mSave" image="images/action_save1.gif"/>
+			<menuitem label="Edit" id="mEdit" image="images/action_edit.gif"/>
+			<menuitem label="New" id="mNew" image="images/action_new.gif"/>
+			<menuitem label="Delete" id="mDelete" image="images/action_delete.gif"/>
+			<menuitem label="Back" id="mBack" image="images/action_back.gif"/>
+			<menuitem label="Print" id="mPrint" image="images/action_print.png"/>
+		</menubar>
+	</north>
+	<center flex="true" autoscroll="true">
+		<div id="zform" height="40%" style="background-color:#F7F7F7;">
+				<grid sclass="GridLayoutNoBorder" id="zformgrid">
+					<rows>
+						<row>
+							<label>DEPARTMENTCODE</label>
+							<textbox id="departmentcode"></textbox>
+							<label>COMPANYCODE</label>
+							<textbox id="companycode"></textbox>
+						</row>
+						<row>
+							<label>DEPARTMENTNAME</label>
+							<textbox id="departmentname"></textbox>
+							<label>DEPARTMENTHEAD</label>
+							<textbox id="departmenthead"></textbox>
+						</row>
+						<row>
+							<label>FUNCTIONALAREA</label>
+							<textbox id="functionalarea"></textbox>
+							<label>LOCATION</label>
+							<textbox id="location"></textbox>
+						</row>
+					</rows>
+				</grid>
+		</div>
+	</center>
+	<south id="s" size="40%" flex="true" maxsize="250" splittable="true" collapsible="true">
+		<div id="zgrid" style="background-color:#F7F7E7">
+			<listbox id="listbox" multiple="true"  mold="paging" pagingPosition="top" pageSize="5" >
+				<listhead  sizable="true" popup="auto">
+					<listheader label="DEPARTMENTCODE" sort="auto(departmentcode)" />
+					<listheader label="COMPANYCODE"  />
+					<listheader label="DEPARTMENTNAME"  />
+					<listheader label="DEPARTMENTHEAD"  />
+					<listheader label="FUNCTIONALAREA"  />
+					<listheader label="LOCATION"  />
+				</listhead>
+				<listitem self="@{each='ar'}" value="@{ar}">
+					<listcell label="@{ar.departmentcode}" />
+					<listcell label="@{ar.companycode}" />
+					<listcell label="@{ar.departmentname}" />
+					<listcell label="@{ar.departmenthead}" />
+					<listcell label="@{ar.functionalarea}" />
+					<listcell label="@{ar.location}" />
+				</listitem>
+			</listbox>
+		</div>
+	</south>
+</borderlayout>
+</zk>

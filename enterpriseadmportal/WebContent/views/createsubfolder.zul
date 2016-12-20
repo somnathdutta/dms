@@ -1,0 +1,27 @@
+<?page title="Create Sub Folder" contentType="text/html;charset=UTF-8"?>
+
+<window title="Create Sub Folder" border="normal" height="30%" width="40%" closable="true">
+
+	<div id="zform" style="background-color:#F7F7F7;">
+		<grid id="zformgrid">
+			<columns>
+				<column width="20%"></column>
+				<column width="80%"></column>
+			</columns>
+			<rows>
+				<row>
+					<label>Folder</label>
+					<label id="parentpath"></label>					
+				</row>
+				<row>
+					<label>Sub-Folder</label>
+					<textbox id="subfolder" width="250px" mold="rounded"></textbox>
+				</row>
+				<row>
+					<space/>
+					<button id="btncreatesubfolder" label="Create"></button>
+				</row>
+			</rows>
+		</grid>
+	</div>
+</window>

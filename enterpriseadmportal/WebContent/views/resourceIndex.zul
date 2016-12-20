@@ -1,0 +1,243 @@
+<?page title="Vikram Solar Docs" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<style dynamic="true">
+
+		<!-- Make Plain Grid -->
+		.GridLayoutNoBorder tr.z-row td.z-row-inner, tr.z-row
+		.z-cell,div.z-grid { 
+			border: none; overflow: hidden; zoom: 1;
+			background:white; border-top: none; border-left: none;
+			border-right: none; border-bottom: none; 
+		}
+	</style>
+	<zscript deferred="true">																						
+	
+	</zscript>
+	
+	<menupopup id="dirOperationsPopup">
+        <menuitem id="mpDiropOpen" image="images/open.png" label="Open" />
+        <menuseparator/>
+        <menuitem id="mpDiropShare" image="images/share.png" label="Share" />
+        <menuitem id="mpDiropAddTask" image="images/mytask.png" label="Add Task" />
+        <menuseparator/>
+        <menuitem id="mpDiropCreateSubFolder" image="images/createsubfolder.png" label="Create Sub Folder" />
+        <menuseparator/>        
+        <menuitem id="mpDiropMove" image="images/move.png" label="Move" />
+        <menuitem id="mpDiropCopy" image="images/copy.png" label="Copy" />
+        <menuitem id="mpDiropRename" image="images/rename.png" label="Rename" />
+        <menuitem id="mpDiropTrash" image="images/trash.png" label="Move To Trash" />
+        <menuitem id="mpDiropDownload" image="images/download.png" label="Download" />
+        <menuitem id="mpDiropProperties" image="images/properties.png" label="Properties" />
+    </menupopup>
+	
+	
+	<menupopup id="fileOperationsPopup">
+        <menuitem id="mpfileopOpen" image="images/open.png" label="Open" />
+        <menuseparator/>
+        <menuitem id="mpfileopShare" image="images/share.png" label="Share" />
+        <menuitem id="mpfileopAddTask" image="images/mytask.png" label="Add Task" />
+        <menuitem id="mpfileopSendMail" image="/widgets/menu/context_menu/img/Bubble-16x16.png" label="Send Mail" />
+        <menuseparator/>        
+        <menuitem id="mpfileopMove" image="images/move.png" label="Move" />
+        <menuitem id="mpfileopCopy" image="images/copy.png" label="Copy" />
+        <menuitem id="mpfileopRename" image="images/rename.png" label="Rename" />
+        <menuitem id="mpfileopTrash" image="images/trash.png" label="Move To Trash" />
+        <menuitem id="mpfileopDownload" image="images/download.png" label="Download" />
+        <menuitem id="mpfileopProperties" image="images/properties.png" label="Properties" />
+        <menuseparator/>                                
+    </menupopup>
+	
+	<menupopup id="gdfileOperationsPopup">
+        <menuitem id="gdmpfileopOpen" image="images/open.png" label="Open" />
+        <menuseparator/>
+        <menu label="Share">
+			<menupopup>
+				<menuitem id="gdmpfileopShare" image="images/share.png" label="Local Share" />
+				<menuitem id="gdmpfileopGroupShare" image="images/share.png" label="Group Share" />
+				<menuitem id="gdmpfileopGoogleShare" image="images/share.png" label="External Share" />
+			</menupopup>
+		</menu>
+        <menuitem id="gdmpfileopAddTask" image="images/mytask.png" label="Add Task" />
+        <menuitem id="gdmpfileopSendMail" image="/widgets/menu/context_menu/img/Bubble-16x16.png" label="Send Mail" />
+        <menuseparator/>        
+        <menuitem id="gdmpfileopMove" image="images/move.png" label="Move" />
+        <menuitem id="gdmpfileopCopy" image="images/copy.png" label="Copy" />
+        <menuitem id="gdmpfileopRename" image="images/rename.png" label="Rename" />
+        <menuitem id="gdmpfileopTrash" image="images/trash.png" label="Move To Trash" />
+        <menuitem id="gdmpfileopDownload" image="images/download.png" label="Download" />
+        <menuitem id="gdmpfileopProperties" image="images/properties.png" label="Properties" />
+        <menuseparator/> 
+        <menuitem id="gdmpfileopCheckOut" image="/widgets/menu/context_menu/img/Bubble-16x16.png" label="Check Out" />
+        <menuitem id="gdmpfileopRevisions" image="/widgets/menu/context_menu/img/Bubble-16x16.png" label="Revisions" />
+        <menuitem id="gdmpfileopAddTag" image="/widgets/menu/context_menu/img/Bubble-16x16.png" label="Add Tag" />
+        <menuitem id="gdmpfileopComments" image="/widgets/menu/context_menu/img/Bubble-16x16.png" label="Comments" />                       
+    </menupopup>
+	
+	
+	<menupopup id="userOperationsPopup">
+        <menuitem id="mpuseropMessage" image="/widgets/menu/context_menu/img/Bubble-16x16.png" label="Message" />
+        <menuseparator />
+        <menuitem id="mpuseropProfile" image="/widgets/menu/context_menu/img/UserProfileMale-16x16.png" label="Profile" />
+        <menuitem id="mpuseropMailTo" image="/widgets/menu/context_menu/img/Envelope-16x16.png" label="Mail to" />
+        <menuseparator />
+        <menu label="Group" image="/widgets/menu/context_menu/img/CasualUsers-16x16.png">
+            <menupopup>
+                <menu label="Add to...">
+                    <menupopup>
+                        <menuitem id="mpuseropAddToMembers" label="Member" autocheck="true" checkmark="true" checked="true" />
+                        <menuitem id="mpuseropAddToManagers" label="Managers" autocheck="true" checkmark="true" />
+                        <menuitem id="mpuseropAddToGuests" label="Guest" autocheck="true" checkmark="true" />
+                        <menuitem id="mpuseropAddToCustomers" label="Customers" autocheck="true" checkmark="true" />
+                    </menupopup>
+                </menu>
+                <menu label="Move to...">
+                    <menupopup>
+                        <menuitem id="mpuseropMoveToMembers" label="Member" autocheck="true" checkmark="true" />
+                        <menuitem id="mpuseropMoveToManagers" label="Managers" autocheck="true" checkmark="true" />
+                        <menuitem id="mpuseropMoveToGuests" label="Guest" autocheck="true" checkmark="true" />
+                        <menuitem id="mpuseropMoveToCustomers" label="Customers" autocheck="true" checkmark="true" />
+                    </menupopup>
+                </menu>
+            </menupopup>
+        </menu>
+        <menuitem id="mpuseropBlock" label="Block" image="/widgets/menu/context_menu/img/CasualUserMaleProhibition-16x16.png" />
+        <menuitem id="mpuseropRemoveContents" label="Remove contant" image="/widgets/menu/context_menu/img/DeleteCross-16x16.png" />
+    </menupopup>
+	
+	<borderlayout id="main" width="100%" height="100%" apply="org.mindgentrix.web.composers.ResourceIndexComposer">
+				
+		<north size="11%">
+			<div>	
+				<image src="images/vs_logo.png" height="10%" ></image>
+			
+				<menubar id="menubar">
+					<menuitem id="accessname" label="" image=""
+						style="background-color: #F8F85C;" />
+					<menuseparator />
+					<menuitem id="mlastupdatedate" width="1000px"></menuitem>
+					<menuseparator />
+					<menuitem id="changepasswordmenu" label="Change Password">
+					</menuitem>
+					<menuitem label="Home" href="accountingIndex.zul"></menuitem>
+					<menuitem label="Logout" id="logout"></menuitem>
+				</menubar>
+			</div>	
+		</north>
+
+		<west title="Menus" size="25%" flex="true" maxsize="500" splittable="true" collapsible="true">
+			<borderlayout  width="100%" height="100%">
+				<north>
+					<div>
+						<button id="btncreatedocument" label="Create Doc"/>
+						<fileupload id="fileupload" native="true" label="Upload"/>
+						<button id="btnrefresh" label="Refresh"/>
+					</div>					
+				</north>
+				<center>				
+					<div style="overflow: auto">					
+						<tree id="fileBrowserTree" width="100%" height="300px" style="overflow: auto"> 
+						
+						</tree>						   					
+					</div>	
+				</center>
+				<south border="normal" title="Controlled Documents" flex="true" splittable="true" collapsible="true" size="50%" >
+				 <div>
+				 	<label id="googlefileref"></label>
+					<tabbox id="tabboxctrl" width="100%" height="100%" mold="accordion">
+						    <tabs>
+						        <tab label="Production"  />
+						        <tab label="Quality Assurance" />
+						        <tab label="Maintenance" />
+						        <tab label="Purchase" />	
+						    </tabs>
+						    <tabpanels>
+						    	<tabpanel>
+						    		<listbox id="datagridprod" multiple="true" mold="paging" pagingPosition="top" pageSize="5" >
+																		
+									</listbox>
+						    	</tabpanel>
+						    	<tabpanel>
+						    		<listbox id="datagridqad" multiple="true" mold="paging" pagingPosition="top" pageSize="5" >
+																		
+									</listbox>
+						    	</tabpanel>
+						    	<tabpanel>
+						    		<listbox id="datagridmaint" multiple="true" mold="paging" pagingPosition="top" pageSize="5" >
+																		
+									</listbox>
+						    	</tabpanel>
+						    	<tabpanel style="background-color: #FFB300;">
+						    		<listbox id="datagridpur" multiple="true" mold="paging" pagingPosition="top" pageSize="5" >
+																		
+									</listbox>
+						    	</tabpanel>
+						    </tabpanels>
+					</tabbox>
+				 </div>	 
+				</south>
+			</borderlayout>
+		</west>
+		<center>
+		
+			<borderlayout>
+				<north size="75%" flex="true" splittable="true">
+					<panel id="workingpanel" title="Manage Files" border="normal" width="100%" minimizable="true" closable="true">
+						 <toolbar id="tb" sclass="vista" height="30px" align="end">
+				            <toolbarbutton image="/widgets/menu/toolbar/img/java.png" onClick='alert("Java")' />
+				            <toolbarbutton image="/widgets/menu/toolbar/img/issue.png" onClick='alert("Issue")' />           
+				            <toolbarbutton image="/widgets/menu/toolbar/img/internet.png" onClick='alert("Internet")' />
+				            <toolbarbutton image="/widgets/menu/toolbar/img/volume.png" onClick='alert("Volume")' />
+				            <toolbarbutton label="12:55 PM" onClick='alert("time")' />
+				        </toolbar>
+						<panelchildren>
+						  <div>	
+						    <!-- <dropupload maxsize="5120" detection="none" onUpload="doSomething(event)">
+							    <attribute name="content"><![CDATA[
+							        <b>Drop Here</b><br/>
+							        size < 5MB
+							    ]]></attribute>
+							</dropupload> -->
+							
+							<listbox id="datagrid" multiple="true" mold="paging" pagingPosition="top" pageSize="13" >
+								<listhead sizable="true">
+									<listheader label="" width="5%" ></listheader>
+									<listheader label="Uploaded Date" width = "12%" align="center"></listheader>
+									<listheader label="Doc. No." width ="10%" ></listheader>
+									<listheader label="Name" width="50%" ></listheader>
+									<listheader label="Last Modified Date" width="12%" ></listheader>
+									<listheader label="Status" width="8%" ></listheader>														
+								</listhead>
+								<!-- Code for actual listItems -->								
+							</listbox>
+						  </div>	
+						</panelchildren>
+					</panel>
+				</north>
+				<south size="20%" flex="true" splittable="true" collapsible="true">
+					<tabbox width="100%" height="100%">
+						<tabs>
+							<tab label="Search" />			        	
+						</tabs>
+						<tabpanels>
+							<tabpanel>
+								
+							</tabpanel>			    	
+						</tabpanels>
+					</tabbox>			
+				</south>
+			</borderlayout>				
+		</center>
+		<east size="15%" flex="true" splittable="true" collapsible="true" title="TASKS">
+			<borderlayout>
+				<north size="50%" flex="true" splittable="true">
+
+				</north>
+				<south size="50%" flex="true" splittable="true">
+
+					<calendar></calendar>
+
+				</south>
+			</borderlayout>
+		</east>				
+	</borderlayout>
+</zk>

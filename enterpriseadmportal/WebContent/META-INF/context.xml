@@ -1,0 +1,15 @@
+<Context path="enterpriseadmportal" debug="5" reloadable="true" crossContext="true">
+
+	<Resource 
+		name="jdbc/mbpl" 
+		auth="Container" 
+		type="javax.sql.DataSource"
+		maxActive="-1" 
+		maxIdle="-1" 
+		maxWait="-1" 
+		username="root" password="root"
+		driverClassName="com.mysql.jdbc.Driver" 
+		url="jdbc:mysql://localhost:3306/solardmsdb"
+	/>
+
+</Context>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?page id="clinicapp" title="VikramSolar DMS DataBrowser"?>
+<?link rel="stylesheet" type="text/css" href="/userguide/macros/userguide.css.dsp?v=${desktop.webApp.build}"?>
+<?script type="text/javascript" src="/userguide/macros/zkdemo.js.dsp?v=${desktop.webApp.build}"?>
+<?script type="text/javascript" content="jq.IE6_ALPHAFIX=/24x24.png|32x32.png|48x48.png|128x128.png|ButtonBlue.png|ButtonGray.png|small.png|small-sel.png|normal.png|normal-sel.png|large.png|large-sel.png/;"?>
+<zk>
+	<zscript><![CDATA[
+	String themeSClass = "blue";
+]]></zscript>
+	<borderlayout id="main" sclass="${themeSClass}" width="100%" height="100%" apply="org.mindgentrix.web.composers.ApproverIndexComposer">
+		<north border="normal" size="50px" sclass="demo-header" collapsible="true">
+			<menubar id="menubar">
+				<menuitem width="150px" id="userpane" label="User:AdminApprover" />
+				<menuitem width="150px" label="Account:Approver" />
+				<menu label="My Account" width="150px">
+					<menupopup>
+						<menuitem label="Change Password" id="changepassword">
+						</menuitem>
+					</menupopup>
+				</menu>
+				<menu label="Session" width="150px">
+					<menupopup>
+						<menuitem label="Log out" id="logout"></menuitem>
+					</menupopup>
+				</menu>
+				<menu label="Help" width="150px">
+					<menupopup>
+						<menuitem label="User Manual"></menuitem>
+						<menuitem label="Maintenance Guide"></menuitem>
+					</menupopup>
+				</menu>					
+			</menubar>
+		</north>
+		<west title="Data Explorer" size="25%" flex="true" maxsize="250"
+			splittable="true" collapsible="true">
+			<tree id="hometree" width="400px" rows="8"
+				zclass="z-dottree">
+				<treechildren>
+					<treeitem open="false">
+						<treerow>
+							<treecell label="Home" />
+						</treerow>
+						<treechildren>
+							<treeitem>
+								<treerow>
+									<treecell onClick="createContent(self)" label="documentapproval" />
+								</treerow>
+							</treeitem>
+							<treeitem>
+								<treerow>
+									<treecell onClick="createContent(self)" label="approverdefaultpage" />
+								</treerow>
+							</treeitem>							
+						</treechildren>
+					</treeitem>					
+				</treechildren>
+			</tree>
+		</west>
+		<center border="normal" flex="true">
+			<include id="include" src="documentapproval.zul"></include>
+		</center>
+	</borderlayout>
+	<!--/div-->
+	<zscript>
+	void createContent(Treecell treecell) {
+		include.setSrc(treecell.getLabel() + ".zul");
+	}
+	void logout() {
+		Executions.sendRedirect("../login.zul?msg=successfully logged out");
+	}
+</zscript>
+</zk>

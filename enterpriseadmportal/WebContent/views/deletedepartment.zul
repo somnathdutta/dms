@@ -1,0 +1,26 @@
+<window title="Department Deletion Process" width="80%"
+	apply="org.zkoss.bind.BindComposer"
+	viewModel="@id('vm') @init('org.mindgentrix.web.composers.DepartmentOperationsComposer')" closable="true">
+	<separator></separator>
+	<listbox 
+		model="@load(vm.allDepartments)" checkmark="true"
+		multiple="true" selectedItem="@bind(vm.selectedDepartment)" 
+		selectedItems="@bind(vm.selectedDepartments)" mold="paging" pageSize="7" pagingPosition="top">
+		
+		<listhead sizable="true">
+			<listheader label="Department Code" sort="auto(departmentcode)" />
+			<listheader label="Department Name" />
+			<listheader label="Department Head" />			
+		</listhead>
+		<template name="model" var="d1">
+			<listitem>
+				<listcell label="@load(d1.departmentcode)"/>
+				<listcell label="@load(d1.departmentname)"/>
+				<listcell label="@load(d1.departmenthead)"/>								
+			</listitem>
+		</template>
+	</listbox>
+	<button label="Delete Selected"
+		onClick="@command('onUpdateDeleteStatusForDepartments')">
+	</button>
+</window>

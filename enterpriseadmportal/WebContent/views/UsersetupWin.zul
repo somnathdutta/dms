@@ -1,0 +1,146 @@
+<?page title="Setup your Users " contentType="text/html;charset=UTF-8"?>
+<?component name="btdual_listbox" extends="div" class="org.mindgentrix.web.listbox.duallistbox.RoleDualListbox" ?>
+<window title="Manage User" height="60%" width="80%" maximizable="true" closable="true">
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./main"?>
+<style dynamic="true">
+		<!-- Make Plain Grid -->
+		.GridLayoutNoBorder tr.z-row td.z-row-inner, tr.z-row
+		.z-cell,div.z-grid {
+			border: none;
+			overflow: hidden;
+			zoom: 1;
+			background:
+			#FFF6C7;
+			border-top: none;
+			border-left: none;
+			border-right: none;
+			border-bottom: none;
+		}
+		.z-textbox{
+	    	text-transform:none;
+	    }
+</style>
+		<zscript deferred="true">
+			String bgColor = "#FFF6C7";
+			String bgStyle = "background: " + bgColor;
+			main.setStyle(bgStyle);
+			n.setStyle(bgStyle);
+		</zscript>
+<borderlayout id="main" apply="org.sap.birlatyres.core.gen.composers.UsersetupComposer" height="100%">
+	<north id="n">
+		<menubar orient="horizontal" style="">
+			<menuitem label="Load" id="mLoad" image="images/action_fetch.gif"/>
+			<menuitem label="Save" id="mSave" image="images/action_save1.gif"/>
+			<menuitem label="Edit" id="mEdit" image="images/action_edit.gif"/>
+			<menuitem label="New" id="mNew" image="images/action_new.gif"/>
+			<menuitem label="Delete" id="mDelete" image="images/action_delete.gif"/>
+			<menuitem label="Back" id="mBack" image="images/action_back.gif"/>
+			<menuitem label="Print" id="mPrint" image="images/action_print.png"/>
+		</menubar>
+	</north>
+	<center flex="true" autoscroll="true">
+		<div id="zform" height="60%" style="background-color:#FFF1AD;">
+				<grid sclass="GridLayoutNoBorder" id="zformgrid">
+					<rows>
+						<row>
+							<label style="font-weight:bold;color:blue;">USERCODE*</label>
+							<textbox id="usercode"></textbox>
+							<label style="font-weight:bold;color:blue;">USERTYPE*</label>
+							<!-- <textbox id="usertype"></textbox> -->
+							<combobox id="usertype" >
+								<comboitem value="SYS" label="SYS"></comboitem>
+								<comboitem value="APR" label="APR"></comboitem>
+								<comboitem value="USR" label="USR"></comboitem>
+								<comboitem value="DSYS" label="DSYS"></comboitem>
+								<comboitem value="DAPR" label="DAPR"></comboitem>
+								<comboitem value="DSYSDAPR" label="DSYS-DAPR"></comboitem>
+																			
+							</combobox>
+							
+						</row>
+						<row>
+							<label style="font-weight:bold;color:blue;">USERNAME*</label>
+							<textbox id="username"></textbox>
+							<label style="font-weight:bold;color:blue;">PASSWORD*</label>
+							<textbox id="password" type="password"></textbox> 
+						</row>						
+						<row>
+							<!-- <label>ACCESSLEVEL</label>
+							<intbox id="accesslevel"></intbox> -->
+							
+							<label>EMAILID</label>
+							<textbox id="emailid"></textbox>
+							<label>ISACTIVE</label>
+							<textbox id="isactive" width="20px" value="Y"></textbox>
+						</row>
+						<row>
+							<label>CONTACTMOBILE</label>
+							<textbox id="contactmobile"></textbox>
+							<label>CONTACTPHONE</label>
+							<textbox id="contactphone"></textbox>
+						</row>
+						<!-- <row>
+							<label style="font-weight:bold;color:blue;">HOMEDIR*</label>
+							<textbox id="homedir"></textbox>
+							<label>ISACTIVE</label>
+							<textbox id="isactive" width="20px" value="Y"></textbox>
+						</row> -->
+						<row>
+							<label>COMPANYCODE</label>
+							<intbox id="companycode"></intbox>
+							<label>EMPLOYMENTCODE</label>
+							<textbox id="employmentcode"></textbox>
+						</row>
+						<row>
+							<label>DESIGNATION</label>
+							<combobox id="cmbDesignation" width="120px"/>
+							<label>RANK</label>
+							<textbox id="txtRank" readonly="true" width="50px"/>
+						</row>
+						
+						<row>
+							<label>ALLOW VIEW</label>
+							<checkbox id="chkView" checked="true"></checkbox>
+							<label>ALLOW DOWNLOAD</label>
+							<checkbox id="chkDownload"></checkbox>
+						</row>
+						<row>
+							<label>ALLOW PRINT</label>
+							<checkbox id="chkPrint"></checkbox>
+							<label>AllOW UPLOAD</label>
+							<checkbox id="chkUpload"></checkbox>
+						</row>
+						
+					</rows>
+				</grid>
+				<div width="80%" align="left">  	
+					<btdual_listbox id="dualLBox"/>  
+				</div>
+		</div>
+	</center>
+	<south id="s" size="40%"  maxsize="250" splittable="true" collapsible="true" flex="true" autoscroll="true">
+		<div id="zgrid" style="background-color:#F7F7E7; overflow:auto; overflow-y: scroll;overflow-x: scroll;">
+			<listbox id="listbox" multiple="true"  mold="paging" pagingPosition="top" pageSize="5">
+				<listhead  sizable="true" popup="auto">
+					<listheader label="USERCODE" sort="auto(usercode)" />
+					<listheader label="USERTYPE"  />
+					<listheader label="USERNAME"  />
+					<listheader label="PASSWORD"  />
+					<listheader label="COMPANYCODE"  />
+					<listheader label="EMPLOYMENTCODE"  />
+					<listheader label="ACCESSLEVEL"  />
+				</listhead>
+				<listitem self="@{each='ar'}" value="@{ar}">
+					<listcell label="@{ar.usercode}" />
+					<listcell label="@{ar.usertype}" />
+					<listcell label="@{ar.username}" />
+					<listcell label="@{ar.password}" />
+					<listcell label="@{ar.companycode}" />
+					<listcell label="@{ar.employmentcode}" />
+					<listcell label="@{ar.accesslevel}" />
+				</listitem>
+			</listbox>
+		</div>
+	</south>
+</borderlayout>
+</window>

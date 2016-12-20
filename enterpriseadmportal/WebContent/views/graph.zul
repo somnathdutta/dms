@@ -1,0 +1,12 @@
+<zk>
+	<flashchart id="mychart" width="250" height="150" type="pie">
+	    <zscript><![CDATA[
+	        PieModel model = new SimplePieModel();
+	        model.setValue("Accounts", new Double(56));
+	        model.setValue("Human Resouces", new Double(51));
+	        model.setValue("Sales", new Double(202));
+	        model.setValue("IT", new Double(141));
+	        mychart.setModel(model);
+	    ]]></zscript>
+	</flashchart>
+</zk>	

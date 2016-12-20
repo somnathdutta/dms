@@ -1,0 +1,118 @@
+<?page title="Shareregister" contentType="text/html;charset=UTF-8"?>
+<zk>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./main"?>
+<style dynamic="true">
+		<!-- Make Plain Grid -->
+		.GridLayoutNoBorder tr.z-row td.z-row-inner, tr.z-row
+		.z-cell,div.z-grid {
+			border: none;
+			overflow: hidden;
+			zoom: 1;
+			background:
+			white;
+			border-top: none;
+			border-left: none;
+			border-right: none;
+			border-bottom: none;
+		}
+	</style>
+		<zscript deferred="true">
+			String bgColor = "#FFBD30";
+			String bgStyle = "background: " + bgColor;
+			main.setStyle(bgStyle);
+			n.setStyle(bgStyle);
+		</zscript>
+<borderlayout id="main" apply="org.sap.birlatyres.core.gen.composers.ShareregisterComposer" height="100%">
+	<north id="n">
+		<menubar orient="horizontal" style="">
+			<menuitem label="Load" id="mLoad" image="images/action_fetch.gif"/>
+			<menuitem label="Save" id="mSave" image="images/action_save1.gif"/>
+			<menuitem label="Edit" id="mEdit" image="images/action_edit.gif"/>
+			<menuitem label="New" id="mNew" image="images/action_new.gif"/>
+			<menuitem label="Delete" id="mDelete" image="images/action_delete.gif"/>
+			<menuitem label="Back" id="mBack" image="images/action_back.gif"/>
+			<menuitem label="Print" id="mPrint" image="images/action_print.png"/>
+		</menubar>
+	</north>
+	<center flex="true" autoscroll="true">
+		<div id="zform" height="40%" style="background-color:#F7F7F7;">
+				<grid sclass="GridLayoutNoBorder" id="zformgrid">
+					<rows>
+						<row>
+							<label>DOCUMENTID</label>
+							<intbox id="documentid"></intbox>
+							<label>PUBLICACCESS</label>
+							<textbox id="publicaccess"></textbox>
+						</row>
+						<row>
+							<label>GROUPCODE</label>
+							<textbox id="groupcode"></textbox>
+							<label>SHAREDESCRIPTION</label>
+							<textbox id="sharedescription"></textbox>
+						</row>
+						<row>
+							<label>SYNCHGOOGLEDRIVESHARE</label>
+							<textbox id="synchgoogledriveshare"></textbox>
+							<label>GOOGLESYNCHEDDATE</label>
+							<datebox id="googlesyncheddate"></datebox>
+						</row>
+						<row>
+							<label>CONTROLFILEPATH</label>
+							<textbox id="controlfilepath"></textbox>
+							<label>ISREADALLOWED</label>
+							<textbox id="isreadallowed"></textbox>
+						</row>
+						<row>
+							<label>ISDOWNLOADALLOWED</label>
+							<textbox id="isdownloadallowed"></textbox>
+							<label>ISPRINTALLOWED</label>
+							<textbox id="isprintallowed"></textbox>
+						</row>
+						<row>
+							<label>SHARESTARTDATE</label>
+							<datebox id="sharestartdate"></datebox>
+							<label>SHAREENDDATE</label>
+							<datebox id="shareenddate"></datebox>
+						</row>
+						<row>
+							<label>CREATIONDATE</label>
+							<datebox id="creationdate"></datebox>
+							<label>CREATEDBY</label>
+							<textbox id="createdby"></textbox>
+						</row>
+						<row>
+							<label>MODIFIEDDATE</label>
+							<datebox id="modifieddate"></datebox>
+							<label>MODIFIEDBY</label>
+							<textbox id="modifiedby"></textbox>
+						</row>
+					</rows>
+				</grid>
+		</div>
+	</center>
+	<south id="s" size="40%" flex="true" maxsize="250" splittable="true" collapsible="true">
+		<div id="zgrid" style="background-color:#F7F7E7">
+			<listbox id="listbox" multiple="true"  mold="paging" pagingPosition="top" pageSize="5" >
+				<listhead  sizable="true" popup="auto">
+					<listheader label="DOCUMENTID" sort="auto(documentid)" />
+					<listheader label="PUBLICACCESS"  />
+					<listheader label="GROUPCODE"  />
+					<listheader label="SHAREDESCRIPTION"  />
+					<listheader label="SYNCHGOOGLEDRIVESHARE"  />
+					<listheader label="GOOGLESYNCHEDDATE"  />
+					<listheader label="CONTROLFILEPATH"  />
+				</listhead>
+				<listitem self="@{each='ar'}" value="@{ar}">
+					<listcell label="@{ar.documentid}" />
+					<listcell label="@{ar.publicaccess}" />
+					<listcell label="@{ar.groupcode}" />
+					<listcell label="@{ar.sharedescription}" />
+					<listcell label="@{ar.synchgoogledriveshare}" />
+					<listcell label="@{ar.googlesyncheddate}" />
+					<listcell label="@{ar.controlfilepath}" />
+				</listitem>
+			</listbox>
+		</div>
+	</south>
+</borderlayout>
+</zk>

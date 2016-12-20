@@ -1,0 +1,177 @@
+<?page title="Document Upload Form" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Document Upload Form"  position= "center" id="chpasswdwin" border="normal" width="700px" height="500px" mode="embedded" >
+	<style dynamic="true">
+		<!-- Make Plain Grid -->
+		.GridLayoutNoBorder tr.z-row td.z-row-inner, tr.z-row
+		.z-cell,div.z-grid {
+			border: none;
+			overflow: hidden;
+			zoom: 1;
+			background: white;
+			border-top: none;
+			border-left: none;
+			border-right: none;
+			border-bottom: none;
+		}
+		.z-textbox{
+	    	text-transform:uppercase;
+	    }
+</style>
+	</style>
+
+	<zscript deferred="true">
+
+			<!-- boolean isBreeze = org.zkoss.zkdemo.userguide.Themes.isBreeze(execution) &amp;&amp; org.zkoss.zkdemo.userguide.Themes.hasBreezeLib();
+
+			boolean isSilvergray = org.zkoss.zkdemo.userguide.Themes.isSilvergray(execution) &amp;&amp; org.zkoss.zkdemo.userguide.Themes.hasSilvergrayLib();
+
+			String bgColor = isBreeze? "#F7F7F7" : isSilvergray? "#DDDDDD" : "#C5E6EF";
+
+			String bgStyle = "background: " + bgColor;
+
+			main.setStyle(bgStyle);
+
+			n.setStyle(bgStyle);
+
+			s.setStyle(bgStyle);	 -->																				
+
+		</zscript>
+
+	<borderlayout id="main" width="100%" height="100%">
+
+		<north>
+			<menubar orient="horizontal" style="">
+
+				<menuitem label="Upload" id="mLoad"	image="images/action_fetch.gif" />
+				<menuitem label="Save" id="mSave" image="images/action_save1.gif" />
+				<menuitem label="Cancel" id="mCancel"	image="images/action_edit.gif" />
+				<menuitem label="Edit" id="mEdit" image="images/action_edit.gif"/>
+				<menuitem label="New" id="mNew" image="images/action_new.gif"/>
+				<menuitem label="Delete" id="mDelete" image="images/action_delete.gif"/>
+				<menuitem label="Back" id="mBack" image="images/action_back.gif"/>
+				<menuitem label="Print" id="mPrint" image="images/action_print.png"/>
+			</menubar>
+
+
+		</north>
+
+		<center autoscroll="true" style="border:1px solid black;">
+
+			<div>
+            <!-- usermaster panel -->
+				<panel title="Document Upload Form" maximizable="true" minimizable="true" collapsible="true" height="50%"  >
+				  
+					<panelchildren>
+						<grid style="border: 1px solid #c8e9ea;"
+							sclass="GridLayoutNoBorder" >
+
+							<columns>
+								<column hflex="min" width="50%" />
+								<column />
+								<column hflex="min"  width="50%" />
+								<column />
+							</columns>
+
+							<rows>
+								<row style="border:0;">
+											<cell align="left">
+												<label value="	Document No : " />
+											</cell>
+									   
+											<cell>
+												<textbox id="documentno"  mold="rounded" width="150px" />
+											</cell>
+									    	<cell align="left">
+												<label value="Document Name :" />
+											</cell>
+											<cell >
+												<textbox id="documentname"  mold="rounded" width="150px"  />
+											</cell>
+								</row>
+								<row style="border:0;">
+											<cell align="left">
+												<label value="Document Type :" />
+											 </cell>
+											 <cell >
+												<textbox id="documenttype"  mold="rounded" width="150px"  />
+													
+											 </cell>
+											 <cell>
+											     <label value="Document Devision :"></label>
+											 </cell>
+											 <cell >
+												<textbox id="documentversion"  mold="rounded" width="150px"  />
+											</cell>
+											
+								</row>
+										
+								<row style="border:0;">
+											<cell align="left">
+												<label value="Quality Mode :" />
+											</cell>
+											<cell>
+												<textbox id="qualitymode"  mold="rounded" width="150px" />
+											</cell>
+										    <cell align="left">
+												<label value="Effective Date  :" />
+											</cell>
+											<cell>
+												<datebox id="effdate" format="dd-MMM-yyyy" mold="rounded" width="150px" />
+											</cell>				
+								</row>
+							</rows>
+						</grid>
+					</panelchildren>
+				</panel>
+ 			<!--end of usermaster panel -->
+ 				<label height="100px" id="label1" value="File Uploaded Path"></label>
+ 			
+				<panel title="Add Share">					
+					<panelchildren>	
+						<tabbox id="tb" hflex="1">
+						
+						<!--  tab start -->
+						
+							<tabs width="30px">
+								<tab  id="usertab" label="Share" image="images/tabimages/employee.png" closable="false" />
+
+							</tabs>
+							<!-- tab end -->
+							
+							
+							<tabpanels>
+								<tabpanel id ="tabpanel1"><!-- first tab  start -->
+									<grid style="border: 1px solid #c8e9ea;" sclass="GridLayoutNoBorder">
+											<columns>
+												<column align="center"
+													label="Column one" />
+												<column align="center"
+													label="column two" />
+											</columns>
+											<rows>
+											<row>
+												<cell>
+												<textbox id="colid1" inplace="true" value="D1100342" />
+												</cell>	
+												<cell>
+												<textbox id="colid2" inplace="true" value="10032" />
+												</cell>	
+											</row>
+											</rows>
+										</grid>
+									
+								</tabpanel><!-- first tabpanel  end -->
+								
+							</tabpanels>
+						</tabbox>
+
+					</panelchildren>
+
+				</panel>
+			</div>
+
+		</center>
+	</borderlayout>
+</window>
+</zk>

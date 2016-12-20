@@ -1,0 +1,145 @@
+<?page title="Controldocument" contentType="text/html;charset=UTF-8"?>
+<zk>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./main"?>
+<style dynamic="true">
+		<!-- Make Plain Grid -->
+		.GridLayoutNoBorder tr.z-row td.z-row-inner, tr.z-row
+		.z-cell,div.z-grid {
+			border: none;
+			overflow: hidden;
+			zoom: 1;
+			background:#FFBD30;
+			border-top: none;
+			border-left: none;
+			border-right: none;
+			border-bottom: none;
+		}
+	</style>
+		<zscript deferred="true">
+			String bgColor = "#FFBD30";
+			String bgStyle = "background: " + bgColor;
+			main.setStyle(bgStyle);
+			n.setStyle(bgStyle);
+		</zscript>
+<borderlayout id="main" apply="org.sap.birlatyres.core.gen.composers.ControldocumentComposer" height="100%">
+	<north id="n">
+		<menubar orient="horizontal" style="">
+			<menuitem label="Load" id="mLoad" image="images/action_fetch.gif"/>
+			<menuitem label="Save" id="mSave" image="images/action_save1.gif"/>
+			<menuitem label="Edit" id="mEdit" image="images/action_edit.gif"/>
+			<menuitem label="New" id="mNew" image="images/action_new.gif"/>
+			<menuitem label="Delete" id="mDelete" image="images/action_delete.gif"/>
+			<menuitem label="Back" id="mBack" image="images/action_back.gif"/>
+			<menuitem label="Print" id="mPrint" image="images/action_print.png"/>
+		</menubar>
+	</north>
+	<center flex="true" autoscroll="true">
+		<div id="zform" height="40%" style="background-color:#FFBD30;">
+				<grid sclass="GridLayoutNoBorder" id="zformgrid">
+					<rows>
+						<row>
+							<label>DOCUMENTID</label>
+							<intbox id="documentid"></intbox>
+							<label>DOCUMENTNUMBER</label>
+							<textbox id="documentnumber"></textbox>
+						</row>
+						<row>
+							<label>DOCUMENTTYPE</label>
+							<textbox id="documenttype"></textbox>
+							<label>DOCUMENTNAME</label>
+							<textbox id="documentname"></textbox>
+						</row>
+						<row>
+							<label>DOCUMENTVERSION</label>
+							<textbox id="documentversion"></textbox>
+							<label>DOCUMENTHASHKEY</label>
+							<textbox id="documenthashkey"></textbox>
+						</row>
+						<row>
+							<label>DESCRIPTION</label>
+							<textbox id="description"></textbox>
+							<label>CONTROLFILEPATH</label>
+							<textbox id="controlfilepath"></textbox>
+						</row>
+						<row>
+							<label>CONTROLFILECREATIONDATE</label>
+							<datebox id="controlfilecreationdate"></datebox>
+							<label>CONTROLFILESIZE</label>
+							<intbox id="controlfilesize"></intbox>
+						</row>
+						<row>
+							<label>SYNCHGOOGLEDRIVE</label>
+							<textbox id="synchgoogledrive"></textbox>
+							<label>GOOGLEDRIVESYNCHEDTIME</label>
+							<datebox id="googledrivesynchedtime"></datebox>
+						</row>
+						<row>
+							<label>GOOGLEFOLDERPATH</label>
+							<textbox id="googlefolderpath"></textbox>
+							<label>GOOGLEDRIVEFILEID</label>
+							<textbox id="googledrivefileid"></textbox>
+						</row>
+						<row>
+							<label>OWNERID</label>
+							<intbox id="ownerid"></intbox>
+							<label>ISBLOCKED</label>
+							<textbox id="isblocked"></textbox>
+						</row>
+						<row>
+							<label>ISDELETED</label>
+							<textbox id="isdeleted"></textbox>
+							<label>ISPASSWORDPROTECTED</label>
+							<textbox id="ispasswordprotected"></textbox>
+						</row>
+						<row>
+							<label>DEPARTMENTCODE</label>
+							<textbox id="departmentcode"></textbox>
+							<label>LOCATION</label>
+							<textbox id="location"></textbox>
+						</row>
+						<row>
+							<label>APPROVEDYN</label>
+							<textbox id="approvedyn"></textbox>
+							<label>CREATIONDATETIME</label>
+							<datebox id="creationdatetime"></datebox>
+						</row>
+						<row>
+							<label>CREATEDBY</label>
+							<textbox id="createdby"></textbox>
+							<label>MODIFIEDDATETIME</label>
+							<datebox id="modifieddatetime"></datebox>
+						</row>
+						<row>
+							<label>MODIFIEDBY</label>
+							<datebox id="modifiedby"></datebox>
+						</row>
+					</rows>
+				</grid>
+		</div>
+	</center>
+	<south id="s" size="40%" flex="true" maxsize="250" splittable="true" collapsible="true">
+		<div id="zgrid" style="background-color:#F7F7E7">
+			<listbox id="listbox" multiple="true"  mold="paging" pagingPosition="top" pageSize="5" >
+				<listhead  sizable="true" popup="auto">
+					<listheader label="DOCUMENTID" sort="auto(documentid)" />
+					<listheader label="DOCUMENTNUMBER"  />
+					<listheader label="DOCUMENTTYPE"  />
+					<listheader label="DOCUMENTNAME"  />
+					<listheader label="DOCUMENTVERSION"  />
+					<listheader label="DOCUMENTHASHKEY"  />
+					<listheader label="DESCRIPTION"  />
+				</listhead>
+				<listitem self="@{each='ar'}" value="@{ar}">
+					<listcell label="@{ar.documentid}" />
+					<listcell label="@{ar.documentnumber}" />
+					<listcell label="@{ar.documenttype}" />
+					<listcell label="@{ar.documentname}" />
+					<listcell label="@{ar.documentversion}" />
+					<listcell label="@{ar.documenthashkey}" />
+					<listcell label="@{ar.description}" />
+				</listitem>
+			</listbox>
+		</div>
+	</south>
+</borderlayout>
+</zk>

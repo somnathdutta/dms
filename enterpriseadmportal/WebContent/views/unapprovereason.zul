@@ -1,0 +1,27 @@
+<?page title="Reason for unapprove" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Reason for unapprove" id="closewinunapprove" border="normal" width="40%" height="50%" closable="true" apply="org.mindgentrix.web.composers.UnapproveReasonComposer">
+
+<vbox>
+	<hbox>
+		<label>Document No.</label>
+		<label id="lblDocumentno"></label>
+	</hbox>
+	<hbox>
+		<label>Document Name.</label>
+		<label id="lblDocumentname"></label>
+	</hbox>
+	<hbox>
+		<label>Document Revision.</label>
+		<label id="lblDocumentrevision"></label>
+	</hbox>
+	<label>Reason for unapprove: </label>
+	<textbox width="400px" id="txtmessage"></textbox>
+	
+	<button id="btnunapprovereason" label="Submit"></button>
+
+</vbox>
+
+
+</window>
+</zk>

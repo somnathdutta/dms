@@ -1,0 +1,29 @@
+<zk>	
+	<flashchart id="mychart" width="350" height="150" type="column">
+	    <zscript><![CDATA[
+	        SimpleCategoryModel model = new SimpleCategoryModel();
+	        
+	        model.setValue("Accounts", "2010", new Integer(50));
+	        model.setValue("Accounts", "2011", new Integer(129));
+	        model.setValue("Accounts", "2012", new Integer(307));
+	        model.setValue("Accounts", "2013", new Integer(317));
+			
+	        model.setValue("Sales", "2010", new Integer(80));
+	        model.setValue("Sales", "2011", new Integer(140));
+	        model.setValue("Sales", "2012", new Integer(150));
+	        model.setValue("Sales", "2013", new Integer(250));
+	 
+	        model.setValue("Human Resources", "2010", new Integer(30));
+	        model.setValue("Human Resources", "2011", new Integer(50));
+	        model.setValue("Human Resources", "2012", new Integer(70));
+	        model.setValue("Human Resources", "2013", new Integer(90));
+	 
+	        model.setValue("IT", "2010", new Integer(45));
+	        model.setValue("IT", "2011", new Integer(60));
+	        model.setValue("IT", "2012", new Integer(64));
+	        model.setValue("IT", "2013", new Integer(120));
+			
+	        mychart.setModel(model);
+	    ]]></zscript>
+	</flashchart>
+</zk>	

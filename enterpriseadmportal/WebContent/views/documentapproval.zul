@@ -1,0 +1,34 @@
+<window title="Document Approval Process" width="80%"
+	apply="org.zkoss.bind.BindComposer"
+	viewModel="@id('vm') @init('org.mindgentrix.web.composers.DocumentApprovalComposer')">
+	<separator></separator>
+	<listbox 
+		model="@load(vm.allDocuments)" checkmark="true"
+		multiple="true" selectedItem="@bind(vm.selectedDocument)" 
+		selectedItems="@bind(vm.selectedDocuments)" mold="paging" pageSize="7" pagingPosition="top">
+		
+		<listhead sizable="true">
+			<listheader label="Department" sort="auto(departmentcode)" />
+			<listheader label="Document No." sortDirection="ascending" sort="auto(documentnumber)" />
+			<listheader label="Document Version" sort="auto(documentversion)" />
+			<listheader label="Document Type" sort="auto(documenttype)" />
+			<listheader label="Document Name"/>
+			<listheader label="Date" sort="auto(controlfilecreationdate)" />
+			<listheader label="Reasons"/>
+		</listhead>
+		<template name="model" var="d1">
+			<listitem>
+				<listcell label="@load(d1.departmentcode)"/>
+				<listcell label="@load(d1.documentnumber)"/>
+				<listcell label="@load(d1.documentversion)"/>				
+				<listcell label="@load(d1.documenttype)"/>
+				<listcell label="@load(d1.documentname)"/>							
+				<listcell label="@load(d1.controlfilecreationdate)"/>
+				<listcell label="@load(d1.documentreason)"/>				
+			</listitem>
+		</template>
+	</listbox>
+	<button label="Approve Selected"
+		onClick="@command('onApproveSelectedDocuments')">
+	</button>
+</window>

@@ -1,0 +1,143 @@
+<?page title="Controldocument" contentType="text/html;charset=UTF-8"?>
+<zk>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit" root="./main"?>
+<style dynamic="true">
+		<!-- Make Plain Grid -->
+		.GridLayoutNoBorder tr.z-row td.z-row-inner, tr.z-row
+		.z-cell,div.z-grid {
+			border: none;
+			overflow: hidden;
+			zoom: 1;
+			background:#FFF6C7;
+			border-top: none;
+			border-left: none;
+			border-right: none;
+			border-bottom: none;
+		}
+		.z-textbox{
+	    	text-transform:uppercase;
+	    }
+</style>
+	<zscript deferred="true">
+		String bgColor = "#FFF6C7";
+		String bgStyle = "background: " + bgColor;
+		main.setStyle(bgStyle);
+		n.setStyle(bgStyle);
+	</zscript>
+		
+	<menupopup id="gdfileOperationsPopup">
+        <menuitem id="gdmpfileopOpen" image="images/open.png" label="Open" />
+        <menuseparator/>
+        <menuitem id="gdmpfileopAddTask" image="images/mytask.png" label="Add Task" />
+        <menuitem id="gdmpfileopSendMail" image="/widgets/menu/context_menu/img/Bubble-16x16.png" label="Send Mail" />
+        <menuseparator/>        
+        <menuitem id="gdmpfileopDownload" image="images/download.png" label="Download" />
+        <menuitem id="gdmpfileopProperties" image="images/properties.png" label="Properties" />
+        <menuseparator/> 
+        <menuitem id="gdmpfileopComments" image="/widgets/menu/context_menu/img/Bubble-16x16.png" label="Comments" />                       
+    </menupopup>	
+<borderlayout id="main" apply="org.sap.birlatyres.core.gen.composers.ApproverDefaultPageComposer" height="100%">
+	<north id="n">
+		<menubar orient="horizontal" style="">
+			<menuitem label="Load" id="mLoad" image="images/action_fetch.gif"/>			
+			<menuitem label="Print" id="mPrint" image="images/action_print.png"/>
+		</menubar>
+	</north>
+	<center flex="true" autoscroll="true">
+		<div id="zgrid" style="background-color:#FFF6C7">
+			
+			<grid >
+					<columns>
+						<column width="40%" align="left"></column>
+						<column width="60%" align="right"></column>
+					</columns>
+					<rows>
+						<row>
+							<space/>
+							<bandbox id="searchbox" width="250px" autodrop="true"> 
+								<bandpopup>
+									<panel width="100%" height="80%" title="Advanced Search">
+										<panelchildren>
+											<grid width="100%" height="100%">
+												<columns>
+													<column width="10%" align="right"></column>
+													<column width="20%" align="left"></column>
+													<column width="10%" align="right"></column>
+													<column width="25%" align="left"></column>
+												</columns>
+												<rows>													
+													<row>															
+														<label value="Doc No"/>
+														<textbox id="documentno"></textbox>
+														<label value="Doc Name"/>
+														<textbox id="documentname"></textbox>
+														<label value="Version"/>
+														<textbox id="version"></textbox>
+													</row>
+													<row>
+														<label value="Date From"/>
+														<datebox id="searchdatefrom"></datebox>
+														<label value="Date To"/>
+														<datebox id="searchdateto"></datebox>
+														<space/>
+														<space/>
+													</row>
+													<row>	
+														<button label="Search" id="btnsearch"></button>
+														<space/>
+														<space/>
+														<space/>
+														<space/>
+														<space/>
+													</row>
+												</rows>								
+											</grid>
+										</panelchildren>									
+									</panel>																		
+								</bandpopup>																	
+							</bandbox>
+						</row>
+					</rows>				
+			</grid>
+			
+			<tabbox width="100%" height="100%">
+				<tabs>
+					<tab id="maintab" label="Listings" image="images/drive-16.png" />
+					<tab id="searchtab" label="Search" image="images/search.png"/>								        	
+				</tabs>
+				<tabpanels>
+					<tabpanel>
+						<listbox id="datalistbox" multiple="true"  mold="paging" pagingPosition="top" pageSize="5" >
+							<listhead  sizable="true" popup="auto">
+								<listheader label="DOCNUMBER" sort="auto(documentnumber)" />
+								<listheader label="DOCTYPE"  />
+								<listheader label="DOCNAME"  />
+								<listheader label="FILE"  />
+								<listheader label="DOCVERSION"  />					
+								<listheader label="DESC"  />
+								<listheader label="DEPT"  />
+							</listhead>				
+						</listbox>
+					</tabpanel>							
+					<tabpanel>
+						<listbox id="searchdatalistbox" multiple="true"  mold="paging" pagingPosition="top" pageSize="5" >
+							<listhead  sizable="true" popup="auto">
+								<listheader label="DOCNUMBER" sort="auto(documentnumber)" />
+								<listheader label="DOCTYPE"  />
+								<listheader label="DOCNAME"  />
+								<listheader label="FILE"  />
+								<listheader label="DOCVERSION"  />					
+								<listheader label="DESC"  />
+								<listheader label="DEPT"  />
+							</listhead>				
+						</listbox>
+					</tabpanel>								    	
+				</tabpanels>
+			</tabbox>			
+		</div>
+	</center>
+	<south id="s" size="60%" flex="true" maxsize="450" splittable="true" collapsible="true">
+		<iframe id="fileframe" height="90%" width="100%" />
+	</south>
+</borderlayout>
+</zk>

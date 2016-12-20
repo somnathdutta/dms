@@ -1,0 +1,26 @@
+<window title="Example for ZK MVVM List Box" width="500px"
+   apply="org.zkoss.bind.BindComposer"
+ viewModel="@id('vm') @init('org.mindgentrix.web.composers.ApprovalComposer')">
+ <label value="You are using: ${desktop.webApp.version}" />
+    <separator></separator>
+ <listbox model="@load(vm.allPersons)" checkmark="true"
+       multiple="true" selectedItem="@bind(vm.selectedPerson)"
+     selectedItems="@bind(vm.selectedPersons)" mold="paging" pageSize="2" pagingPosition="top">
+       <listhead sizable="true">
+         <listheader label="First Name" sortDirection="ascending"
+             sort="auto(firstName)" />
+            <listheader label="Last Name" sort="auto(lastName)" />
+            <listheader label="Email" sort="auto(email)" />
+       </listhead>
+       <template name="model" var="p1">
+          <listitem>
+                <listcell label="@load(p1.firstName)" />
+              <listcell label="@load(p1.lastName)" />
+               <listcell label="@load(p1.email)" />
+          </listitem>
+       </template>
+   </listbox>
+    <button label="Show Selected Items email id"
+     onClick="@command('onShowEmailID')">
+ </button>
+</window>

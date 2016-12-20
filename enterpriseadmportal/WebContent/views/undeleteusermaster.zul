@@ -1,0 +1,28 @@
+<window title="Users Deletion Process" width="80%"
+	apply="org.zkoss.bind.BindComposer"
+	viewModel="@id('vm') @init('org.mindgentrix.web.composers.UserUndeleteOperationsComposer')" closable="true">
+	<separator></separator>
+	<listbox 
+		model="@load(vm.allUsers)" checkmark="true"
+		multiple="true" selectedItem="@bind(vm.selectedUser)" 
+		selectedItems="@bind(vm.selectedUsers)" mold="paging" pageSize="7" pagingPosition="top">
+		
+		<listhead sizable="true">
+			<listheader label="User Code" sort="auto(usercode)" />
+			<listheader label="User Name" />
+			<listheader label="Email" />
+			<listheader label="Mobile" />			
+		</listhead>
+		<template name="model" var="d1">
+			<listitem>
+				<listcell label="@load(d1.usercode)"/>
+				<listcell label="@load(d1.username)"/>
+				<listcell label="@load(d1.emailid)"/>
+				<listcell label="@load(d1.contactmobile)"/>								
+			</listitem>
+		</template>
+	</listbox>
+	<button label="UnDelete Selected"
+		onClick="@command('onUpdateUnDeleteStatusForUsers')">
+	</button>
+</window>

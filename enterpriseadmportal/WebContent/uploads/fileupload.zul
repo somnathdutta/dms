@@ -1,0 +1,5 @@
+<zk>
+<window id="window" apply="org.mindgentrix.web.FileUpload" title="new page title" border="normal">
+<fileupload id="fileupload" native="true" label="Upload file" />
+</window>
+</zk>

@@ -1,0 +1,51 @@
+<window height="100%" width="90%" title="File Viewer" closable="true">
+	<borderlayout height="100%" apply="org.mindgentrix.web.composers.UserGoogleFileViewerComposer"> 
+		<north height="8%">
+
+		</north>
+
+		<center flex="true">
+			<div id="zform" height="40%" style="background-color:#FFFFFF;" align="center">
+
+				<iframe id="fileframe" height="90%" width="100%" />
+
+			</div>
+		</center>
+
+		<east title="Properties" size="20%" flex="true" maxsize="500" splittable="true" collapsible="true">
+			<div id="testdiv">
+				<grid>
+					<columns>
+						<column width="30%"></column>
+						<column width="70%"></column>
+					</columns>
+					<rows>
+						<row>
+							<label value="FileName"></label>
+							<label id="lblFileName" value=""></label>
+						</row>
+						<row>
+							<label value="Size"></label>
+							<label id="lblFileSize" value=""></label>
+						</row>
+						<row>
+							<label value="Owner"></label>
+							<label id="lblFileOwner" value=""></label>
+						</row>
+						<row>
+							<label value="Tasks"></label>
+							<label id="lblFileTasks" value=""></label>
+						</row>
+						<row>
+							<label value="Comments"></label>
+							<label id="lblFileComments" value=""></label>
+						</row>
+					</rows>
+
+				</grid>
+			</div>
+
+		</east>
+
+	</borderlayout>
+</window>

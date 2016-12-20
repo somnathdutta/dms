@@ -1,0 +1,11 @@
+<?page title="Setup Sharing" contentType="text/html;charset=UTF-8"?>
+<?component name="btdual_listbox" extends="div" class="org.mindgentrix.web.listbox.duallistbox.RoleDualListbox" ?>
+
+<window title="Setup Sharing" border="normal" width="50%" height="60%" closable="true" apply="org.mindgentrix.web.composers.ResourceGroupMatrixComposer">
+  	
+  	<label value="Resource Name :"/><space/><label id="resourcename" value=""/>
+	<btdual_listbox id="dualLBox"/>
+	<hbox spacing="10px" width="24px" align="center">
+		<button id="btnsetup" label="Share"/> 
+	</hbox>			
+</window>

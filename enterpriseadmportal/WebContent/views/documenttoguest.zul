@@ -1,0 +1,60 @@
+<?page title="Share Document to Guest" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Share Document to Guest" border="normal" closable="true" id="doctoguestwin" width="50%" height="50%" apply="org.sap.birlatyres.core.gen.composers.DocumenttoGuestComposer">
+<style dynamic="true">
+		<!-- Make Plain Grid -->
+		.GridLayoutNoBorder tr.z-row td.z-row-inner, tr.z-row
+		.z-cell,div.z-grid {
+			border: none;
+			overflow: hidden;
+			zoom: 1;
+			background:
+			#FFF6C7;
+			border-top: none;
+			border-left: none;
+			border-right: none;
+			border-bottom: none;
+		}
+		.z-textbox{
+	    	text-transform:none;
+	    }
+</style>
+<grid>
+
+	<rows>
+		<row>
+			<label>Guest Usercode :</label>
+			<textbox id="txtguestcode"></textbox>
+			<button id="btnConfirm">Confirm</button>	
+		</row>
+		
+		<row id="rwguname">
+			<label>Guest Username:</label>
+			<label id="lblGuestusername"></label>
+		
+		</row>
+		
+		<row id="rwdname">
+			<label>Document Name:</label>
+			<label id="lbldocname"></label>
+		
+		</row>
+		
+		<row id="rwdnumber">
+		
+			<label>Document Number:</label>
+			<label id="lbldocumentnumber"></label>
+		
+		</row>
+		
+		<row id="rwsubmit">
+			<button id="btnSubmit" label="Click to give share"></button>	
+		</row>
+	
+	
+	</rows>
+
+</grid>
+
+</window>
+</zk>

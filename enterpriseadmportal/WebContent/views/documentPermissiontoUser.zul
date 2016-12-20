@@ -1,0 +1,15 @@
+<?page title="Document Permission to Selected Users" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="Document Permission to Selected Users" border="normal" width="60%" height="60%" closable="true" apply="org.mindgentrix.web.listbox.duallistbox.DocumentPermissiontoUserComposer">
+
+	<vlayout>
+		<label>Please select Department : </label>
+		<combobox id="cmbDepartmentcode"></combobox>
+	</vlayout>
+	
+	<div width="80%" align="left">  	
+		<DocumentPermissiontoUserDualListbox id="dualLBoxfordocumentpermissiontoUser"/>  
+	</div>
+
+</window>
+</zk>
